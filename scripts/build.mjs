@@ -8,7 +8,9 @@ await build({
   format: 'esm',
   define: {
     __NEXT_PUBLIC_SUPABASE_URL__: JSON.stringify(process.env.NEXT_PUBLIC_SUPABASE_URL ?? ''),
-    __NEXT_PUBLIC_SUPABASE_ANON_KEY__: JSON.stringify(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? ''),
+    __NEXT_PUBLIC_SUPABASE_ANON_KEY__: JSON.stringify(
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? '',
+    ),
   },
 });
 await rm('public', { recursive: true, force: true });
