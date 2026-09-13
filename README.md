@@ -18,6 +18,8 @@ Host the complete folder on HTTPS for phone installation. On iPhone, open that H
 4. Build with `NEXT_PUBLIC_SUPABASE_URL=... NEXT_PUBLIC_SUPABASE_ANON_KEY=... pnpm run build`.
 5. Deploy the complete folder, including the generated `supabase-client.js` file.
 
+For Vercel, add both values as Production and Preview environment variables in the project settings. The included `vercel.json` builds the static `public` folder automatically.
+
 The app uses `supabase.auth.signInWithOtp({ email })` for passwordless email sign-in. A first sign-in merges local records with cloud records, uploads the merged copy, and thereafter saves to the local cache and syncs the same changes to the authenticated user's account. Deletions are queued too. If offline, changes remain on the device and retry when it reconnects.
 
 Only Supabase's publishable/anon key belongs in `.env`; never use a service-role key in the app. The provided Row Level Security policies restrict rows to their authenticated owner.
