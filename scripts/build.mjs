@@ -1,13 +1,16 @@
 import { build } from 'esbuild';
 import { copyFile, mkdir, rm } from 'node:fs/promises';
 
+const configuredUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? '';
+const markdownUrl = configuredUrl.match(/^\[[^\]]+\]\((https?:\/\/[^)]+)\)$/)?.[1];
+
 await build({
   entryPoints: ['src/supabase-client.js'],
   outfile: 'supabase-client.js',
   bundle: true,
   format: 'esm',
   define: {
-    __NEXT_PUBLIC_SUPABASE_URL__: JSON.stringify(process.env.NEXT_PUBLIC_SUPABASE_URL ?? ''),
+    __NEXT_PUBLIC_SUPABASE_URL__: JSON.stringify(markdownUrl ?? configuredUrl),
     __NEXT_PUBLIC_SUPABASE_ANON_KEY__: JSON.stringify(
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? '',
     ),
