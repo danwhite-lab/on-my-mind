@@ -19,6 +19,7 @@
 <dialog id="editor" aria-labelledby="editor-title"><form id="editor-form"><h2 id="editor-title"></h2><label id="field-label" for="entry"></label><div id="field"></div><div class="dialog-actions"><button type="button" id="cancel">Cancel</button><button class="primary" type="submit">Save</button></div></form></dialog>
 <dialog id="confirm" aria-labelledby="confirm-title" aria-describedby="confirm-copy"><h2 id="confirm-title"></h2><p class="delete-copy" id="confirm-copy"></p><div class="dialog-actions"><button id="keep">Cancel</button><button id="remove" class="danger">Delete</button></div></dialog>
 <dialog id="auth-dialog" aria-labelledby="auth-title"><form id="auth-form"><h2 id="auth-title">Sync your thoughts</h2><p class="auth-copy">Use the same email on every device.</p><label for="auth-email">Email address</label><input id="auth-email" type="email" autocomplete="email" required placeholder="you@example.com"><p id="auth-message" class="date" role="status"></p><div class="dialog-actions"><button type="button" id="auth-cancel">Cancel</button><button class="primary" type="submit">Send sign-in link</button></div></form></dialog>
+<script type="importmap">{"imports":{"@supabase/supabase-js":"https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm"}}</script>
 <script type="module" src="./supabase-client.js"></script>
 <script>
 'use strict';
