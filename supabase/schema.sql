@@ -29,3 +29,8 @@ create policy "Users manage their own thoughts" on public.thoughts
 
 create index thoughts_user_id_idx on public.thoughts(user_id);
 create index thoughts_topic_id_idx on public.thoughts(topic_id);
+
+-- Enable live updates for signed-in devices. Run once; omit either statement
+-- if the table has already been added to the supabase_realtime publication.
+alter publication supabase_realtime add table public.topics;
+alter publication supabase_realtime add table public.thoughts;
